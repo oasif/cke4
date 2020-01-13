@@ -1,0 +1,32 @@
+// Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+// Licensed under the terms of the MIT license. See LICENSE.md for details.
+
+@modal-close-size: 18px;
+
+.modal {
+	padding: 20px;
+	border-radius: @global-border-radius;
+	background-color: white;
+	max-width: 700px;
+	.box-sizing( border-box );
+
+	// There's no way to override these via config because they're hardcoded in Pico.
+	// Using !important to bypass that problem.
+	width: 80% !important;
+	top: 50% !important;
+	.transform( translate( -50%, -50% ) ) !important;
+
+	&-close {
+		.border-radius( 100px );
+		cursor: pointer;
+		height: @modal-close-size;
+		width: @modal-close-size;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 17px;
+		text-align: center;
+		line-height: @modal-close-size + 1px;
+		background: rgb(204, 204, 204);
+	}
+}
