@@ -7,8 +7,8 @@
 # All "dot directories".
 .*/**
 
-node_modules/**
-build/**
+# node_modules/**
+# build/**
 coverage/**
 
 dev/builder/release/**
@@ -30,3 +30,4 @@ bender-*.log
 !.github/**
 !.npm/*
 .DS_Store
+node_modules
