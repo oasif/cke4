@@ -529,7 +529,7 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 			},
 			{
 				id: 'Upload',
-				hidden: true,
+				hidden: false,
 				filebrowser: 'uploadButton',
 				label: lang.uploadTab,
 				elements: [

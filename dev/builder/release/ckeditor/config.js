@@ -22,7 +22,7 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
 	//config.skin = 'moono-dark';
-	config.extraPlugins = 'tableresize, simage, image2';
+	config.extraPlugins = 'tableresize, image2, uploadimage';
 
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';

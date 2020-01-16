@@ -19,7 +19,10 @@ var initSample = ( function() {
 
 	return function() {
 		var editorElement = CKEDITOR.document.getById( 'editor' );
-
+console.log('kkk')
+		editorElement.on( 'fileUploadRequest', function( evt ) {
+			alert('rr')
+		});
 		// :(((
 		if ( isBBCodeBuiltIn ) {
 			editorElement.setHtml(
