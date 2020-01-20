@@ -8,6 +8,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 	<meta charset="utf-8">
 	<title>CKEditor Sample</title>
 	<script src="../dev/builder/release/ckeditor/ckeditor.js"></script>
+	<!-- <script src="../ckeditor.js"></script> -->
 	<script src="js/sample.js"></script>
 	<link rel="stylesheet" href="css/samples.css">
 	<link rel="stylesheet" href="toolbarconfigurator/lib/codemirror/neo.css">
@@ -70,14 +71,30 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 
 <script>
 
-	var editorElement = CKEDITOR.document.getById( 'editor',{
-    filebrowserBrowseUrl : 'browse_url',
-    filebrowserUploadUrl : 'upload_url'
-} );
-	var e = CKEDITOR.replace( 'editor' );
-	e.on( 'fileUploadRequest', function( evt ) {
-			alert('rr');
-		});
+	var editorElement = CKEDITOR.document.getById( 'editor');
+	var config={};
+	config.skin = 'moono-lisa';
+	config.extraPlugins = 'tableresize';
+	var e = CKEDITOR.replace( 'editor', config );
+	CKEDITOR.on('bodhiCkeUpload', function(evt) {
+		this.dialog.getCurrent().setValueOf( 'info', 'src', 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' );
+	});
+	// CKEDITOR.on('dialogDefinition', function(ev) {
+    //     //dialogDefinition is a ckeditor event it's fired when ckeditor dialog instance is called
+	// 	var dialogName = ev.data.name;
+	// 	console.log(dialogName);
+	// 	var dialogDefinition = ev.data.definition;
+	// 	console.log(dialogDefinition);
+    //     if (dialogName == 'image2') { //dialogName is name of dialog and identify which dialog is fired.
+	// 		var infoTab = dialogDefinition.getContents('info'); // get tab of the dialog
+	// 		console.log(infoTab);
+    //         var btnUpload = infoTab.get('upload'); //get send to server button
+    //         btnUpload.onChange = function(ee,ww) {
+    //             //here we can invoke our custom fileuploader or server files popup
+    //             console.log('xxxxxxxxxxxx', ee, ww);
+    //         };
+    //     }
+    // });
 </script>
 
 </body>

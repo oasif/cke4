@@ -1,4 +1,4 @@
-/**
+﻿/**
  * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
@@ -347,7 +347,7 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 			{
 				id: 'src',
 				type: 'text',
-				label: commonLang.url,
+				label: 'Image URL',
 				onKeyup: onChangeSrc,
 				onChange: onChangeSrc,
 				setup: function( widget ) {
@@ -357,6 +357,22 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 					widget.setData( 'src', this.getValue() );
 				},
 				validate: CKEDITOR.dialog.validate.notEmpty( lang.urlMissing )
+			},
+			{
+				id: 'orUpload',
+				type: 'html',
+				label: commonLang.url,
+				html: '<span style="display: inline-block;margin-top:25px">or<span?' 
+			},
+			{
+				type: 'button',
+				id: 'bodhiCkeUpload',
+				label: 'Upload',
+				title: 'Insert an image file from your local machine',
+				onClick: function() {
+					// this = CKEDITOR.ui.dialog.button
+					CKEDITOR.fire('bodhiCkeUpload');
+				}
 			}
 		];
 
@@ -529,7 +545,7 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 			},
 			{
 				id: 'Upload',
-				hidden: false,
+				hidden: true,
 				filebrowser: 'uploadButton',
 				label: lang.uploadTab,
 				elements: [
